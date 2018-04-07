@@ -117,15 +117,16 @@ bot.on("message", async message => {
   
   if (cmd === `${prefix}verify`) {
      
-      let role = message.guild.roles.find(r => r.name === "ENERGY");
+      let role = message.guild.roles.find(r => r.name === "⟨ Member ⟩");
       message.member.addRole(role)
     
-      if(message.member.roles.has(role.id)) return message.reply("You already have ENERGY roles!");
+      if(message.member.roles.has(role.id)) return message.reply("You already have ⟨ Member ⟩ roles!");
 
       let acceptlaporan = new Discord.RichEmbed()
       .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL)
       .setColor(3447003)
-      .setDescription(`${message.author.tag} Has Been Verified`)
+      .setDescription("***COMMANDS***")
+      .addField(`${message.author.tag} Has Verified!`)
       .setFooter("Ikan | Beta v2.0")
 
       let modlog = message.guild.channels.find(`name`, "mod-log");
