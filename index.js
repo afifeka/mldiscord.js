@@ -4,13 +4,6 @@ const cpu = process.cpuUsage().system / 1024 / 1024;
 const used = process.memoryUsage().heapUsed / 1024 / 1024;
 const ms = require("ms");
 const YTDL = require("ytdl-core");
-const weather = require("weather-js");
-const got = require("got");
-const db = require('quick.db');
-const request = require("request");
-const encode = require("strict-uri-encode");
-const google = require("google");
-const blacklist = require('./blacklist.json');
 
 const bot = new Discord.Client({disableEveryone: false});
 
