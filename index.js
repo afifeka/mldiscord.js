@@ -32,33 +32,26 @@ function play(connection, message) {
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
 
-  function randomStatus() {
-        let status = [`${bot.guilds.size} SERVERS!!`, `${bot.users.size.toLocaleString()} USERS!`, `Edit All Command To English!`, `i!help | Beta v1.0`]
-        let rstatus = Math.floor(Math.random() * status.length);
-        bot.user.setActivity(status[rstatus], {type: 'WATCHING'});
-
-   }; setInterval(randomStatus, 10000)
- 
   
 });
 
 bot.on('guildMemberAdd', member => {
 
  
-  const channel = member.guild.channels.find('name', 'join-left');
+  const channel = member.guild.channels.find('name', '🔝selamat-datang');
   
   if (!channel) return;
   
-  message.channel.send(`${message.author.tag} Joined The Server!`)
+  message.channel.send(`**Welcome! ${message.author.tag}, Dont Forget To Look The Rules!**`)
 });
 
 bot.on('guildMemberRemove', member => {
  
-  const channel = member.guild.channels.find('name', 'join-left');
+  const channel = member.guild.channels.find('name', '🔚selamat-tinggal');
   
   if (!channel) return;
   
-  channel.send(`${message.author.tag} Left The Server! `);
+  channel.send(`Goodbye! ${message.author.tag} Dead In Here :,(! `);
 });
 
 
@@ -80,7 +73,7 @@ bot.on("message", async message => {
     let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!kUser) return message.channel.send(":warning: **| Please Tag Player To Be Kicked!**");
     let kReason = args.join(" ").slice(22);
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("No can do pal!");
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(":negative_squared_cross_mark: **| You Dont Have Permission To Do This!**");
     if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send(":negative_squared_cross_mark: **| Failed To Kicked This Person!**");
 
     let kickEmbed = new Discord.RichEmbed()
